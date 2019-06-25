@@ -1,0 +1,65 @@
+.step-group {
+    display: flex;
+    flex-direction: row;
+
+    > .step {
+        vertical-align: bottom;
+    }
+}
+
+.step {
+    flex: 1;
+    position: relative;
+    
+
+    .step-animation-horizontal {
+        position: absolute;
+
+        width: 0;
+        height: 3px;
+        background-color: #BBDEFB;
+        transition: width 0.5s;
+    }
+
+    .step-animation-vertical {
+        position: absolute;
+        right: 0;
+
+        width: 3px;
+        height: 0;
+        background-color: #BBDEFB;
+        transition: height 0.25s;
+        transform: translateY(-100%);
+    }
+
+    .infobox {
+        height: 30px;
+        line-height: 30px;
+        text-indent: 10px;
+        position: 'absolute';
+        opacity: 0;
+        transition: opacity 0.2s;
+        font-size: 13px;
+        color: #616161;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // white-space: nowrap;
+
+        @media (max-width: 768px) {
+            text-indent: 0;
+            font-size: 11px;
+        }
+    }
+}
+
+.step-animation-horizontal.active {
+    width: 100%;
+}
+
+.step-animation-vertical.active {
+    height: 30px;
+}
+
+.infobox.active {
+    opacity: 1;
+}

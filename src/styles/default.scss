@@ -1,0 +1,111 @@
+@font-face { 
+    font-family: 'yg-jalnan'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); 
+    font-weight: normal; 
+    // font-style: normal; 
+}
+
+html, body, head, h1, h2, h3, h4, h5, h6, p, a, li, ol, ul, div, table, thead, tbody, th, td, tr, img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #2196F3;
+    font-size: 13px;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#app-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    transition: 1s;
+}
+
+.animated {
+    transform: scale(1.5);
+    // transform: translate(-100%);
+}
+
+.common-title {
+    font-family: 'yg-jalnan';
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.common-subtitle {
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #424242;
+    font-weight: bold;
+    text-align: center;
+}
+
+.block-wrapper {
+    padding: 30px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.common-contents {
+    font-size: 13px;
+    line-height: 17px;
+    color: #616161;
+}
+
+.clearfix {
+    content: '';
+    display: block;
+    clear: both;
+    overflow: hidden;
+    height: 0;
+}
+
+.global-home-button {
+    position: fixed;
+    bottom: 100px;
+    right: 60px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 25px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    > p {
+        font-family: 'yg-jalnan';
+        font-size: 15px;
+        text-align: center;
+    }
+
+}
+.global-home-button:hover {
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 430px) {
+    #app-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
