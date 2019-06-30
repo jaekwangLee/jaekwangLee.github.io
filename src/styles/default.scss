@@ -103,6 +103,31 @@ a:hover {
     color: white;
 }
 
+.global-talk-button {
+    position: fixed;
+    bottom: 30px;
+    right: 60px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 25px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    > p {
+        font-family: 'yg-jalnan';
+        font-size: 15px;
+        text-align: center;
+    }
+
+}
+.global-talk-button:hover {
+    background-color: black;
+    color: white;
+}
+
 @media (max-width: 430px) {
     #app-container {
         padding-left: 15px;

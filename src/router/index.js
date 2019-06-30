@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 // routes
 import Main from '../main';
 import RecentlyNews from '../components/recent';
+import Talk from '../components/talk';
 
 const Roots = () => (
     <Switch>
@@ -11,6 +12,7 @@ const Roots = () => (
         <Route path="/recent">
             <Route path="/:id" component={ RecentlyNews } />
         </Route>
+        <Route path="/talk" component={ Talk } />
         <Route component={ () => (
             <div>
                 <h1>페이지를 찾을 수 없습니다.</h1>

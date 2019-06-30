@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Routers from './router';
 import Header from './components/header';
-import { updateHome } from './store/global';
-import moment from 'moment';
+import { updateHome, updateTalk } from './store/global';
 
 interface Props {
   history: any;
   location: any;
   match: any;
   is_home: Boolean;
+  is_talk: Boolean;
   updateHome: Function;
+  updateTalk: Function;
 }
 
 interface State {
@@ -24,7 +25,7 @@ class MainContainer extends React.PureComponent<Props, State> {
   };
   
   render() {
-    const { is_home } = this.props;
+    const { is_home, is_talk } = this.props;
     return (
       <div>
         <div id="app-container" className={ this.state.clicked ? 'animated' : '' }>
@@ -38,25 +39,51 @@ class MainContainer extends React.PureComponent<Props, State> {
           </div>
           : null
         }
+        {
+          !is_talk ?
+          <div className='global-talk-button' onClick={ () => { this.goTalk(); }}>
+            <p>톡</p>
+          </div>
+          : null
+        }
       </div>
     );
   }
 
   componentDidMount = () => {
     const { pathname } = this.props.location;
-    if (pathname === '/') this.props.updateHome(true);
-    else this.props.updateHome(false);
+    if (pathname === '/') {
+      this.props.updateHome(true);
+      this.props.updateTalk(false);
+
+    } else if(pathname === '/talk') {
+      this.props.updateHome(false);
+      this.props.updateTalk(true);
+
+    } else {
+      this.props.updateHome(false);
+      this.props.updateTalk(false);
+    }
   }
 
   componentDidUpdate = (prevProps: any) => {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       const { pathname } = this.props.location;
-      if (pathname === '/') { 
-        this.props.updateHome(true); 
+      if (pathname === '/') {
+        this.props.updateHome(true);
+        this.props.updateTalk(false);
         this.setState({ clicked: false });
+        
+      } else if(pathname === '/talk') {
+        this.props.updateHome(false);
+        this.props.updateTalk(true);
+        this.setState({ clicked: false });
+  
       } else {
         this.props.updateHome(false);
+        this.props.updateTalk(false);
       }
+
     }
   }
   
@@ -67,14 +94,24 @@ class MainContainer extends React.PureComponent<Props, State> {
       }, 900);
     });
   }
+
+  goTalk = () => {
+    this.setState({ clicked: true }, () => {
+      setTimeout(() => {
+        this.props.history.push('/talk');
+      }, 900);
+    });
+  }
 }
 
-const mapStateToProps = ({ homeReducer }:any) => ({
-  is_home: homeReducer.is_home,
+const mapStateToProps = ({ globalReducer }:any) => ({
+  is_home: globalReducer.is_home,
+  is_talk: globalReducer.is_talk,
 });
 
 const mapDiaptchToProps = (dispatch: any) => ({
   updateHome: (is_home: Boolean) => dispatch(updateHome(is_home)),
+  updateTalk: (is_talk: Boolean) => dispatch(updateTalk(is_talk)),
 });
 
 export default withRouter(
