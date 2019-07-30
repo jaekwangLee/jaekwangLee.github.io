@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import Wrapper from '../common/block_wrapper';
+import Wrapper from '../Common/block_wrapper';
 
 interface Props {
     title: string;

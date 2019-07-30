@@ -1,5 +1,5 @@
 import React from 'react';
-import Subtitle from '../../components/common/subtitle';
+import Subtitle from '../../Common/subtitle';
 
 interface Props {
     title: string;
@@ -15,7 +15,7 @@ const BlogDetail: React.SFC<Props> = ({ title, date, contents }) => (
         </div>
         <div className='detail-contents'>
             {/* <Contents contents={ contents } /> */}
-            <p>{ contents.split('\n').map(line => ( <span>{line}<br/></span>) )}</p>
+            <p>{ contents.split('\n').map((line, index) => ( <span key={ index.toString() }>{line}<br/></span>) )}</p>
         </div>
     </div>
 );

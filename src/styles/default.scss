@@ -5,7 +5,13 @@
     // font-style: normal; 
 }
 
-html, body, head, h1, h2, h3, h4, h5, h6, p, a, li, ol, ul, div, table, thead, tbody, th, td, tr, img {
+html, body, #root {
+    display: block;
+    // min-height: 100vh,
+    scrollbar-width: 0px;
+}
+
+html, body, head, h1, h2, h3, h4, h5, h6, p, a, li, ol, ul, div, table, thead, tbody, th, td, tr, img, input, textarea {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -133,4 +139,98 @@ a:hover {
         padding-left: 15px;
         padding-right: 15px;
     }
+}
+
+#top-button {
+    width: 25px;
+    height: 70px;
+    text-align: center;
+    position: fixed;
+    right: 40px;
+    bottom: 50px;
+    z-index: 9999;
+    border-radius: 6px;
+    cursor: pointer;
+
+    >div.top-button-body {
+        width: 20px;
+        height: 32px;
+        background-color: #44583b ;
+        border-radius: 12px;
+        margin: 0 auto;
+        margin-bottom: -10px;
+        box-shadow: 2px 10px 14px #424242;
+    }
+    >div.top-button-tail {
+        width: 8px;
+        height: 38px;
+        margin: 0 auto;
+        background-color: #44583b ;
+        border-radius: 10px;
+    }
+
+    >div.top-button-fan {
+        display: inline-block;
+        width: 2.5px;
+        vertical-align: center;
+        // border-radius: 8px;
+        transition: all 0.2s;
+    }
+
+    >div.top-button-fan>span {
+        display: inline-block;
+        width: 2px;
+        border-radius: 2px;
+        background-color: black;
+    }
+    
+    >div.top-button-fan:nth-child(3)>span {
+        position: absolute;
+        height: 42px;
+        left: 12px;
+        top: -4px;
+        transform: rotate(-45deg);
+    }
+    
+    >div.top-button-fan:nth-child(4)>span {
+        position: absolute;
+        height: 42px;
+        left: 12px;
+        top: -4px;
+        transform: rotate(45deg);
+    }
+
+    >div.top-button-fan:nth-child(5)>span {
+        position: absolute;
+        height: 18px;
+        left: 12px;
+        bottom: 8px;
+    }
+
+    >div.top-button-fan:nth-child(6)>span {
+        position: absolute;
+        height: 18px;
+        left: 12px;
+        bottom: 8px;
+        transform: rotate(90deg);
+    }
+}
+
+#top-button:hover >div>span {
+    animation-name: rotation;
+    animation-duration: 0.15s;
+    animation-iteration-count: infinite;
+}
+
+#top-button:hover >div.top-button-body {
+    box-shadow: 2px 10px 25px #424242;
+}
+
+@keyframes rotation {
+    from { 
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    } 
 }

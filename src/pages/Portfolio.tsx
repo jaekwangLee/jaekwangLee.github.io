@@ -1,9 +1,9 @@
 import React from 'react';
-import Wrapper from '../common/block_wrapper';
-import Title from '../common/title';
-import Subtitle from '../common/subtitle';
-import Contents from '../common/contents';
-import Block from './block';
+import Wrapper from '../components/Common/block_wrapper';
+import Title from '../components/Common/title';
+import Subtitle from '../components/Common/subtitle';
+import Contents from '../components/Common/contents';
+import Block from '../components/Portfolio/Atoms/block';
 
 interface Props {
     name: string;

@@ -1,6 +1,6 @@
 import React from 'react';
-import Wrapper from '../common/block_wrapper';
-import Title from '../common/title';
+import Wrapper from '../Common/block_wrapper';
+import Title from '../Common/title';
 import Line from './line';
 
 interface Props {

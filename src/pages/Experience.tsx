@@ -1,7 +1,7 @@
 import React from 'react';
-import Wrapper from '../common/block_wrapper';
-import Title from '../common/title';
-import Step from './step';
+import Wrapper from '../components/Common/block_wrapper';
+import Title from '../components/Common/title';
+import Step from '../components/Experience/Organisms/step';
 
 interface Props {
 

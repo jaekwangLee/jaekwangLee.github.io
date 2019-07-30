@@ -1,12 +1,12 @@
 import React from 'react';
-import Wrapper from '../common/block_wrapper';
-import Title from '../common/title';
+import Wrapper from '../components/Common/block_wrapper';
+import Title from '../components/Common/title';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateHorizontal, showDetailNews } from '../../store/recent';
+import { updateHorizontal, showDetailNews } from '../store/recent';
 
-import Card from './blog_card';
-import Detail from './blog_detail_card';
+import Card from '../components/Recent/Organisms/blog_card';
+import Detail from '../components/Recent/Molecules/blog_detail_card';
 
 interface Props {
     news: Array<object|any>;
@@ -25,7 +25,6 @@ interface State {
 
 class RecentlyNewsContainer extends React.PureComponent<Props, State> {
     render() {
-        console.log(this.props);
         const actived = this.props.news[this.props.news_idx];
         return (
             <Wrapper id='recently'>
@@ -39,7 +38,7 @@ class RecentlyNewsContainer extends React.PureComponent<Props, State> {
                 {
                     this.props.news.map((news:any, index) => (
                             <Card
-                                key={ index.toString() }
+                                key={ news.id.toString() }
                                 goDetail={ () => { this.goDetail(index, news.id); }}
                                 title={ news.title }
                                 date={ news.date }

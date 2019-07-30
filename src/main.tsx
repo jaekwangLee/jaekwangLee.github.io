@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Introduce from './components/introduce';
-import Portfoilo from './components/portfoilo';
-import Experience from './components/experience';
-import Programming from './components/programming';
-import RecentNews from './components/recent';
+import Introduce from './pages/Introduce';
+import Portfoilo from './pages/Portfolio';
+import Experience from './pages/Experience';
+import Programming from './pages/Programming';
+import RecentNews from './pages/Recent';
 import Connect from './components/footer';
 
 import { showDetailNews } from './store/recent';

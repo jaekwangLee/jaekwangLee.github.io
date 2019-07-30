@@ -1,24 +1,25 @@
+
 // type
-const UPDATE_SCROLL_POSITION = 'UPDATE_SCROLL_POSITION';
+const UPDATE_ROOMS = 'UPDATE_ROOMS';
 
 // action by type
-export const updateScroll = (scroll: Number) => ({ type: UPDATE_SCROLL_POSITION, scroll });
+export const updateRooms = (rooms: Array<any>) => ({ type: UPDATE_ROOMS, rooms });
 
 interface stateTypes {
-    scroll: Number;
+    rooms: Array<any>;
 };
 
 const initialState: stateTypes = {
-    scroll: 0,
+    rooms: [],
 };
 
 // case
 export default function (state=initialState, action: any) {
     switch(action.type) {
-        case UPDATE_SCROLL_POSITION:
+        case UPDATE_ROOMS:
             return {
                 ...state,
-                scroll: action.scroll,
+                rooms: action.rooms,
             };
         default:
             return state;
